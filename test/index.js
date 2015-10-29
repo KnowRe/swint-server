@@ -11,6 +11,9 @@ describe('HTTPS-only server', function() {
 	var server;
 
 	before(function(done) {
+		var credPath = path.join(process.env.HOME, '.swint', 'swint-server-test.json'),
+			cred = JSON.parse(fs.readFileSync(credPath));
+
 		fs.mkdirSync(path.join(os.tmpdir(), 'swint-server'));
 
 		server = new swintServer({
@@ -39,7 +42,8 @@ describe('HTTPS-only server', function() {
 			},
 			router: {
 				dir: path.join(__dirname, '../test_case/router')
-			}
+			},
+			orm: cred.mysql
 		}, function() {
 			done();
 		});
