@@ -1,6 +1,6 @@
 {
   "name": "swint-server",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Swint web server based on expressJS",
   "main": "lib/index.js",
   "scripts": {
@@ -28,6 +28,7 @@
     "sprintf": "^0.1.5",
     "swint-helper": "^0.1.7",
     "swint-middleware": "^0.1.0",
+    "swint-query": "^0.1.0",
     "swint-router": "^0.1.0"
   },
   "devDependencies": {
