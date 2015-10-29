@@ -1,0 +1,38 @@
+{
+  "name": "swint-server",
+  "version": "0.1.0",
+  "description": "Swint web server based on expressJS",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "eslint lib && mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KnowRe/swint-server.git"
+  },
+  "keywords": [
+    "swint",
+    "server",
+    "express"
+  ],
+  "author": "Kurt Cho <kivoloid@gmail.com>",
+  "contributors": [],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KnowRe/swint-server/issues"
+  },
+  "homepage": "https://github.com/KnowRe/swint-server",
+  "dependencies": {
+    "express": "^4.13.3",
+    "http2": "^3.2.0",
+    "sprintf": "^0.1.5",
+    "swint-helper": "^0.1.7",
+    "swint-middleware": "^0.1.0",
+    "swint-router": "^0.1.0"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "eslint": "*",
+    "request": "^2.65.0"
+  }
+}
