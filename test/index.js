@@ -12,8 +12,22 @@ describe('HTTPS-only server', function() {
 
 	before(function(done) {
 		var credPath = path.join(process.env.HOME, '.swint', 'swint-server-test.json'),
-			cred = JSON.parse(fs.readFileSync(credPath));
+			cred;
 
+		try {
+			fs.accessSync(credPath);
+			cred = JSON.parse(fs.readFileSync(credPath));
+		} catch(e) {
+			cred = {
+				mysql: {
+					host: process.env.SWINT_SERVER_TEST_HOST,
+					database: process.env.SWINT_SERVER_TEST_DATABASE,
+					user: process.env.SWINT_SERVER_TEST_USER,
+					password: process.env.SWINT_SERVER_TEST_PASSWORD
+				}
+			};
+		}
+		
 		fs.mkdirSync(path.join(os.tmpdir(), 'swint-server'));
 
 		server = new swintServer({
