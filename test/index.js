@@ -57,6 +57,10 @@ describe('HTTPS-only server', function() {
 			router: {
 				dir: path.join(__dirname, '../test_case/router')
 			},
+			static: {
+				url: '/static',
+				path: path.join(__dirname, '../test_case/static')
+			},
 			orm: cred.mysql
 		}, function() {
 			done();
@@ -104,6 +108,18 @@ describe('HTTPS-only server', function() {
 				fs.readFileSync(path.join(os.tmpdir(), 'swint-server/post-middleware2.txt'), 'utf-8'),
 				'test'
 			);
+			done();
+		});
+	});
+
+	it('Static service', function(done) {
+		request.get({
+			url: 'https://localhost:8443/static/foo.txt',
+			strictSSL: false
+		}, function(err, resp, body) {
+			print(body);
+			assert.equal(body, 'bar\n');
+
 			done();
 		});
 	});
