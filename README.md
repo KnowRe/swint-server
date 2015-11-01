@@ -33,7 +33,13 @@ var server = new swintServer({
 		post: [
 			'post-middleware'
 		]
-	}
+	},
+	static: [
+		{
+			url: 'static',
+			path: path.join(__dirname, 'static')
+		}
+	]
 }, function() {
 	done();
 });
