@@ -47,10 +47,7 @@ describe('HTTPS-only server', function() {
 					}
 				],
 				pre: [
-					{
-						name: 'favicon',
-						options: {}
-					},
+					'favicon',
 					'pre-middleware1',
 					{
 						name: 'pre-middleware2',
@@ -126,7 +123,6 @@ describe('HTTPS-only server', function() {
 			url: 'https://localhost:8443/static/foo.txt',
 			strictSSL: false
 		}, function(err, resp, body) {
-			print(body);
 			assert.equal(body, 'bar\n');
 
 			done();

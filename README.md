@@ -22,9 +22,9 @@ var server = new swintServer({
 			dir: path.join(__dirname, '../test_case/test_middleware')
 		}],
 		pre: [
-			'pre-middleware1',
+			'pre-middleware1', // for the middlewares don't need options or want to run with default ones
 			{
-				name: 'pre-middleware2',
+				name: 'pre-middleware2', // for the middlewares need options
 				options: {
 					string: 'middlewareOptionString'
 				}
