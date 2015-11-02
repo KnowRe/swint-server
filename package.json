@@ -27,7 +27,7 @@
     "http2": "^3.2.0",
     "sprintf": "^0.1.5",
     "swint-helper": "^0.1.7",
-    "swint-middleware": "^0.1.0",
+    "swint-middleware": "^0.1.2",
     "swint-query": "^0.1.0",
     "swint-router": "^0.1.0"
   },

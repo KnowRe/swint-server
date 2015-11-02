@@ -38,10 +38,19 @@ describe('HTTPS-only server', function() {
 				mode: 'enabled'
 			},
 			middleware: {
-				loader: [{
-					dir: path.join(__dirname, '../test_case/middleware')
-				}],
+				loader: [
+					{
+						dir: path.join(__dirname, '../test_case/middleware')
+					},
+					{
+						dir: path.join(__dirname, '../node_modules/swint-middleware/lib/middlewares')
+					}
+				],
 				pre: [
+					{
+						name: 'favicon',
+						options: {}
+					},
 					'pre-middleware1',
 					{
 						name: 'pre-middleware2',
@@ -153,8 +162,10 @@ describe('HTTPS-only server', function() {
 	});
 
 	after(function() {
-		fs.unlinkSync(path.join(os.tmpdir(), 'swint-server/post-middleware.txt'));
-		fs.unlinkSync(path.join(os.tmpdir(), 'swint-server/post-middleware2.txt'));
+		try {
+			fs.unlinkSync(path.join(os.tmpdir(), 'swint-server/post-middleware.txt'));
+			fs.unlinkSync(path.join(os.tmpdir(), 'swint-server/post-middleware2.txt'));
+		} catch(e) {}
 		fs.rmdirSync(path.join(os.tmpdir(), 'swint-server'));
 	});
 });
