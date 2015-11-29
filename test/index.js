@@ -165,3 +165,90 @@ describe('HTTPS-only server', function() {
 		fs.rmdirSync(path.join(os.tmpdir(), 'swint-server'));
 	});
 });
+
+describe('Another setting', function() {
+	var server;
+
+	before(function(done) {
+		var credPath = path.join(process.env.HOME, '.swint', 'swint-server-test.json'),
+			cred;
+
+		try {
+			fs.accessSync(credPath);
+			cred = JSON.parse(fs.readFileSync(credPath));
+		} catch(e) {
+			cred = {
+				mysql: {
+					host: process.env.SWINT_SERVER_TEST_HOST,
+					database: process.env.SWINT_SERVER_TEST_DATABASE,
+					user: process.env.SWINT_SERVER_TEST_USER,
+					password: process.env.SWINT_SERVER_TEST_PASSWORD
+				}
+			};
+		}
+		
+		fs.mkdirSync(path.join(os.tmpdir(), 'swint-server'));
+
+		server = new swintServer({
+			http: {
+				port: 8081,
+				mode: 'enabled',
+				validHost: ['*']
+			},
+			https: {
+				mode: 'disabled'
+			},
+			middleware: {
+				loader: [
+					{
+						dir: path.join(__dirname, '../test_case/middleware')
+					},
+					{
+						dir: path.join(__dirname, '../node_modules/swint-middleware/lib/middlewares')
+					}
+				],
+				pre: [
+					'favicon',
+					'pre-middleware1',
+					{
+						name: 'pre-middleware2',
+						options: {
+							string: 'middlewareOptionString'
+						}
+					}
+				],
+				post: [
+					'post-middleware'
+				]
+			},
+			router: {
+				dir: path.join(__dirname, '../test_case/router')
+			},
+			static: {
+				url: '/static',
+				path: path.join(__dirname, '../test_case/static')
+			},
+			orm: cred.mysql
+		}, function() {
+			done();
+		});
+	});
+
+	it('No Redirection', function(done) {
+		request.get({
+			url: 'http://127.0.0.1:8081/test_case',
+			followRedirect: false
+		}, function(err, resp, body) {
+			assert.equal(resp.statusCode, 200);
+			done();
+		});
+	});
+
+	after(function() {
+		try {
+			fs.unlinkSync(path.join(os.tmpdir(), 'swint-server/post-middleware.txt'));
+			fs.unlinkSync(path.join(os.tmpdir(), 'swint-server/post-middleware2.txt'));
+		} catch(e) {}
+		fs.rmdirSync(path.join(os.tmpdir(), 'swint-server'));
+	});
+});
