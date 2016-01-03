@@ -21,15 +21,18 @@
   "bugs": {
     "url": "https://github.com/KnowRe/swint-server/issues"
   },
+  "engines": {
+    "node": ">=4.0.0"
+  },
   "homepage": "https://github.com/KnowRe/swint-server",
   "dependencies": {
     "express": "^4.13.3",
     "http2": "^3.2.0",
     "sprintf": "^0.1.5",
-    "swint-helper": "^0.1.7",
-    "swint-middleware": "^0.1.2",
-    "swint-query": "^0.1.0",
-    "swint-router": "^0.1.0"
+    "swint-helper": "1.x",
+    "swint-middleware": "1.x",
+    "swint-query": "1.x",
+    "swint-router": "1.x"
   },
   "devDependencies": {
     "mocha": "*",
