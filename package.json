@@ -26,8 +26,8 @@
   },
   "homepage": "https://github.com/KnowRe/swint-server",
   "dependencies": {
-    "express": "^4.13.3",
-    "http2": "^3.2.0",
+    "express": "^4.13.4",
+    "http2": "^3.3.2",
     "sprintf": "^0.1.5",
     "swint-helper": "1.x",
     "swint-middleware": "1.x",
@@ -35,8 +35,8 @@
     "swint-router": "1.x"
   },
   "devDependencies": {
-    "mocha": "*",
-    "eslint": "*",
-    "request": "^2.65.0"
+    "mocha": "^2.4.5",
+    "eslint": "^1.10.3",
+    "request": "^2.69.0"
   }
 }
