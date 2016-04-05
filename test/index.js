@@ -80,7 +80,7 @@ describe('HTTPS-only server', function() {
 			followRedirect: false
 		}, function(err, resp, body) {
 			assert.equal(resp.statusCode, 302);
-			assert.equal(body, 'Found. Redirecting to https://localhost:8443//');
+			assert.equal(body, 'Found. Redirecting to https://localhost:8443/');
 			done();
 		});
 	});
@@ -92,7 +92,7 @@ describe('HTTPS-only server', function() {
 			followRedirect: false
 		}, function(err, resp, body) {
 			assert.equal(resp.statusCode, 302);
-			assert.equal(body, 'Found. Redirecting to https://localhost:8443//');
+			assert.equal(body, 'Found. Redirecting to https://localhost:8443/');
 			done();
 		});
 	});
