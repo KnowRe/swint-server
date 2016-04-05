@@ -1,5 +1,5 @@
 2016.04.05, Version 1.0.3
- * Fix: Stripped '/' from redirection URL 
+ * Fix: Stripped '/' from redirection URL
 
 2016.04.02, Version 1.0.2
  * Upgrade: Upgraded dependencies
