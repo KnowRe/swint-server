@@ -26,17 +26,17 @@
   },
   "homepage": "https://github.com/KnowRe-Dev/swint-server",
   "dependencies": {
-    "express": "^4.15.1",
-    "http2": "^3.3.6",
-    "sprintf": "^0.1.5",
-    "swint-helper": "1.x",
-    "swint-middleware": "1.x",
-    "swint-query": "1.x",
-    "swint-router": "1.x"
+    "express": "4.15.1",
+    "http2": "3.3.6",
+    "sprintf": "0.1.5",
+    "swint-helper": "1.2.2",
+    "swint-middleware": "1.1.4",
+    "swint-query": "1.1.0",
+    "swint-router": "1.0.5"
   },
   "devDependencies": {
-    "mocha": "^3.2.0",
-    "eslint": "^3.17.0",
-    "request": "^2.80.0"
+    "mocha": "3.2.0",
+    "eslint": "3.17.0",
+    "request": "2.80.0"
   }
 }
