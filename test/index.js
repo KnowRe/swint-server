@@ -60,6 +60,9 @@ describe('HTTPS-only server', function() {
 					'post-middleware'
 				]
 			},
+			exceptHandlers : [
+				'except-handlers'
+			],
 			router: {
 				dir: path.join(__dirname, '../test_case/router')
 			},
@@ -125,6 +128,32 @@ describe('HTTPS-only server', function() {
 		}, function(err, resp, body) {
 			assert.equal(body, 'bar\n');
 
+			done();
+		});
+	});
+
+	it('exceptHandlers test 503', function(done){
+		request.get({
+			url: 'https://localhost:8443/exceptHandlerTest/503',
+			headers: {
+				Accept: 'application/json'
+			},
+			strictSSL: false
+		}, function(err, resp, body) {
+			assert.equal(resp.statusCode, 503);
+			done();
+		});
+	});
+
+	it('exceptHandlers test 500', function(done){
+		request.get({
+			url: 'https://localhost:8443/exceptHandlerTest/500',
+			headers: {
+				Accept: 'application/json'
+			},
+			strictSSL: false
+		}, function(err, resp, body) {
+			assert.equal(resp.statusCode, 500);
 			done();
 		});
 	});
