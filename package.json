@@ -29,7 +29,7 @@
     "express": "4.15.3",
     "http2": "3.3.6",
     "sprintf": "0.1.5",
-    "swint-helper": "1.2.4",
+    "swint-helper": "1.2.5",
     "swint-middleware": "1.1.6",
     "swint-query": "1.1.2",
     "swint-router": "1.0.7"
