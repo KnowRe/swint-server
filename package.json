@@ -31,7 +31,7 @@
     "sprintf": "0.1.5",
     "swint-helper": "1.2.5",
     "swint-middleware": "1.1.7",
-    "swint-query": "1.2.0",
+    "swint-query": "1.2.1",
     "swint-router": "1.0.8"
   },
   "devDependencies": {
