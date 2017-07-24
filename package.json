@@ -30,7 +30,7 @@
     "http2": "3.3.6",
     "sprintf": "0.1.5",
     "swint-helper": "1.2.5",
-    "swint-middleware": "1.1.7",
+    "swint-middleware": "1.1.8",
     "swint-query": "1.2.0",
     "swint-router": "1.0.8"
   },
