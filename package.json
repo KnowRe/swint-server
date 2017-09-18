@@ -32,7 +32,7 @@
     "swint-helper": "1.2.6",
     "swint-middleware": "1.1.8",
     "swint-query": "1.2.1",
-    "swint-router": "1.0.9"
+    "swint-router": "1.0.10"
   },
   "devDependencies": {
     "mocha": "3.4.2",
