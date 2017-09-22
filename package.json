@@ -27,7 +27,7 @@
   "homepage": "https://github.com/KnowRe-Dev/swint-server",
   "dependencies": {
     "express": "4.15.4",
-    "http2": "3.3.6",
+    "http2": "3.3.7",
     "sprintf": "0.1.5",
     "swint-helper": "1.2.7",
     "swint-middleware": "1.1.9",
